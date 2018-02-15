@@ -1,0 +1,110 @@
+import java.util.Scanner; 
+public class BaseballStat {
+
+	private int Hits;
+	private int AB; //at bats
+	private int BB; // walks
+	private int SF; //sacrificial flies
+	private int dbl; //doubles
+	private int triple; //triples
+	private int HR; //home runs
+	private int R; // runs
+	private int HBP; // hit by pitch
+	private int singles = this.Hits - this.dbl - this.triple - this.HR;
+	
+	public int getHBP() {
+		return HBP;
+	}
+	public void setHBP(int hBP) {
+		HBP = hBP;
+	}
+	public int getR() {
+		return R;
+	}
+	public void setR(int r) {
+		R = r;
+	}
+	public int getHits() {
+		return Hits;
+	}
+	public void setHits(int hits) {
+		Hits = hits;
+	}
+	public int getAB() {
+		return AB;
+	}
+	public void setAB(int aB) {
+		AB = aB;
+	}
+	public int getBB() {
+		return BB;
+	}
+	public void setBB(int bB) {
+		BB = bB;
+	}
+	public int getSF() {
+		return SF;
+	}
+	public void setSF(int sF) {
+		SF = sF;
+	}
+	public int getDbl() {
+		return dbl;
+	}
+	public void setDbl(int dbl) {
+		this.dbl = dbl;
+	}
+	public int getTriple() {
+		return triple;
+	}
+	public void setTriple(int triple) {
+		this.triple = triple;
+	}
+	public int getHR() {
+		return HR;
+	}
+	public void setHR(int hR) {
+		HR = hR;
+	}
+	// ^these are my setters and getters
+	
+	public double BA() { //batting average
+		double BA = (this.Hits) / (this.AB);
+		return BA;
+	}
+	public double OBP() { //on base percentage
+		double OBP = (this.Hits + this.BB + this.HBP)/(this.AB + this.BB + this.HBP + this.SF);
+		return OBP;
+	}
+	public double TB() { // total bases
+		double TB = (1*this.singles + 2*this.dbl + 3*this.triple +4*this.HR);
+		return TB;
+	}
+	public double SLG(){ //slugging percentage
+		int SLG = (1*this.singles + 2*this.dbl + 3*this.triple +4*this.HR) / AB; 
+		return SLG;
+	}
+	public double OBS() { // On base + slugging percentage
+		double OBS = ((this.Hits + this.BB + this.HBP)/(this.AB + this.BB + this.HBP + this.SF)) + ((1*this.singles + 2*this.dbl + 3*this.triple +4*this.HR) / AB);
+		return OBS;
+	}
+	
+	public BaseballStat(int hits, int aB, int bB, int sF, int dbl, int triple, int hR, int r) {
+		super();
+		Hits = hits;
+		AB = aB;
+		BB = bB;
+		SF = sF;
+		this.dbl = dbl;
+		this.triple = triple;
+		HR = hR;
+		R = r;
+	} //this is my constructor that I generated using fields
+
+	public static void main(String[] args) {
+	    Scanner scanner = new Scanner(System.in);
+	    System.out.print("Enter Player Name,, Hits, Doubles, Triples, Homeruns, Runs and Walks:");
+	    double Hits = scanner.nextByte();
+	    System.out.println("BA= " + BA + ", OBP= " + OBP + ", SLG= " + SLG + "OBS= " + OBS + ", TB=" + TB);
+	  }
+}
