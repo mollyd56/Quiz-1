@@ -100,11 +100,18 @@ public class BaseballStat {
 		HR = hR;
 		R = r;
 	} //this is my constructor that I generated using fields
-
+	
 	public static void main(String[] args) {
 	    Scanner scanner = new Scanner(System.in);
-	    System.out.print("Enter Player Name,, Hits, Doubles, Triples, Homeruns, Runs and Walks:");
-	    double Hits = scanner.nextByte();
+	    System.out.print("Enter Player Name, Hits, Doubles, Triples, Homeruns, Runs and Walks:");
+	    String name=sc.next();
+	    int Hits = sc.nextint();
+	    int dbls = sc.nextint();
+	    int triple = sc.nextint();
+	    int HR = sc.nextint();
+	    int R = sc.nextint();
+	    int BB = sc.nextint();
+	    
 	    System.out.println("BA= " + BA + ", OBP= " + OBP + ", SLG= " + SLG + "OBS= " + OBS + ", TB=" + TB);
 	  }
 }
